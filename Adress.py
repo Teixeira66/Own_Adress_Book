@@ -14,6 +14,7 @@ def get_Adress():
     content = listdb.read()
     listdb.close()
     Adress = content.split("\n") 
+    Adress.sort()
     return Adress
 
 @app.route("/Guests")
@@ -26,7 +27,7 @@ def Guests():
     return html_page.replace("$$Adress_Book$$", actual_values)
 
 
-@app.route("/index")
+@app.route("/")
 def Homepage():
     return get_html("index")
 
